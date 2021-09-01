@@ -1,9 +1,0 @@
-for contributing to a forked repo by creating branch 
-
-git init
-git remote add upstream https://github.com/credenz/credenz-website-frontend
-git checkout -b ellika
-git add .
-git commit -m 'profile page'
-git push -u -f origin master
-git push https://github.com/credenz/credenz-website-frontend ellika
