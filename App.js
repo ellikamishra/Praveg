@@ -1,9 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View,SafeAreaView,Image,TouchableOpacity, Button, Alert } from 'react-native';
-
-export default function App() {
-  const handlePress=()=> console.log("Pressed!");
+import WelcomeScreen from './App/screens/WelcomeScreen';
+/*
+const handlePress=()=> console.log("Pressed!");
   console.log("App executed");
   const showAlert=()=>Alert.alert(
     "ALERT!",
@@ -27,9 +27,8 @@ export default function App() {
       <StatusBar style="auto" />
     </View>
   );
-}
 
-const styles = StyleSheet.create({
+  const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
@@ -41,3 +40,11 @@ const styles = StyleSheet.create({
     backgroundColor: "orange"
   }
 });
+*/
+export default function App() {
+  return(
+    <WelcomeScreen/>
+  );
+}
+
+
