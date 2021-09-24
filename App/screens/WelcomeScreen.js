@@ -1,19 +1,22 @@
-import React from 'react';
-import { ImageBackground,StyleSheet,View,Text,Platform,StatusBar } from 'react-native';
+import React,{useState} from 'react';
+import { ImageBackground,StyleSheet,View,Text,Platform,StatusBar,Button } from 'react-native';
+import QRScreen from './QRScreen';
 
 function WelcomeScreen(props) {
+    const [setOpen,setOpenFunc]=useState(false);
     return (
         
         <ImageBackground 
         style={styles.background}
         source={require('../assets/background.webp')}>
         <View style={styles.container}>
-        <View style={styles.clickButton} >
-            <Text style={{paddingLeft:5}}>Login</Text>
-        </View>
-        <View style={styles.clickButton}>
+        <Button style={styles.clickButton} title="Login" onPress={()=>setOpenFunc(true)}>
+            
+        </Button>
+        {/* <View style={styles.clickButton}>
             <Text>Signup</Text>
-        </View>
+        </View> */}
+        {setOpen?<QRScreen/>:null}
         </View>
 
         
@@ -37,7 +40,7 @@ const styles = StyleSheet.create({
     clickButton:{
       
         
-        backgroundColor:"white",
+        color:"black",
         width:"40%",
         height:60,
         margin:5,

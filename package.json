@@ -14,6 +14,8 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
+    "react-native-camera": "git+https://git@github.com/react-native-community/react-native-camera.git",
+    "react-native-qrcode-scanner": "^1.5.4",
     "react-native-web": "~0.13.12"
   },
   "devDependencies": {
