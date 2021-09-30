@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Fragment } from 'react';
-import { Text, View, StatusBar, Platform, StyleSheet, Linking } from 'react-native';
+import { Text, View, StatusBar, Platform, StyleSheet, Linking,TouchableOpacity } from 'react-native';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 
 
@@ -19,13 +19,13 @@ function QRScreen(props) {
     <View style={styles.conatiner}>
       <Fragment>
         <StatusBar barStyle="dark-content"></StatusBar>
-        <Text> Welcome to text scanner</Text>
+        <Text> Praveg scanner</Text>
         <QRCodeScanner reactivate={true} onRead={(e) => onSuccess(e)}
           topContent={
             <Text style={styles.centerText}>
               Go to{' '}
-              <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text> on
-              your computer and scan the QR code.
+              <Text style={styles.textBold}>Praveg</Text> 
+              Scan item to add in cart
             </Text>
           }
           bottomContent={
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   },
   textBold: {
     fontWeight: '500',
-    color: '#000'
+    color: 'black'
   },
   buttonText: {
     fontSize: 21,

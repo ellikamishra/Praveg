@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { ImageBackground,StyleSheet,View,Text,Platform,StatusBar,Button } from 'react-native';
+import { ImageBackground,StyleSheet,View,Text,Platform,StatusBar,Button,Header } from 'react-native';
 import QRScreen from './QRScreen';
 
 function WelcomeScreen(props) {
@@ -8,8 +8,9 @@ function WelcomeScreen(props) {
         
         <ImageBackground 
         style={styles.background}
-        source={require('../assets/background.webp')}>
+        source={require('../assets/grocery.webp')}>
         <View style={styles.container}>
+        {/* <Text style={{position:"absolute",top:"3",fontSize:1000,color:"black"}}>PRAVEG</Text> */}
         <Button style={styles.clickButton} title="Login" onPress={()=>setOpenFunc(true)}>
             
         </Button>
@@ -33,9 +34,9 @@ const styles = StyleSheet.create({
     container:{
         paddingTop:Platform.OS==="android"?StatusBar.currentHeight:0,
         flex:1,
-        flexDirection:"row",
+        flexDirection:"column",
         justifyContent:"center",
-        alignItems:"flex-end"
+        alignItems:"center"
     },
     clickButton:{
       
@@ -45,6 +46,13 @@ const styles = StyleSheet.create({
         height:60,
         margin:5,
         padding:5,
+        marginBottom:2,
+        
+    },
+    textStyle:{
+        fontStyle:"italic",
+        fontWeight:"700",
+        color:"white",
         
     }
     
