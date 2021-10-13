@@ -1,0 +1,7 @@
+type Order @model {
+  id: ID!
+  Customername: String!
+  totalPrice: Float!
+  itemCount: Int!
+  description: String
+}
