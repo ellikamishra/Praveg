@@ -1,6 +1,8 @@
 import React,{useState} from 'react';
 import {Image, ImageBackground,StyleSheet,View,Text,Platform,StatusBar,Button,Header,TextInput,TouchableOpacity } from 'react-native';
 import QRScreen from './QRScreen';
+// import Amplify from '/home/ellika/FirstApp/src/aws-exports.js';
+
 
 function WelcomeScreen(props) {
     const [setOpen,setOpenFunc]=useState(false);
@@ -10,42 +12,17 @@ function WelcomeScreen(props) {
         style={styles.background}
         source={require('../assets/grocery.webp')}>
         <View style={styles.container}>
-        <View style={styles.inputContainer}>
-          <TextInput style={styles.inputs}
-              placeholder="Email"
-              keyboardType="email-address"
-              underlineColorAndroid='transparent'/>
-        </View>
-        <View style={styles.inputContainer}>
-          <TextInput style={styles.inputs}
-              placeholder="Password"
-              secureTextEntry={true}
-              underlineColorAndroid='transparent'/>
-        </View>
-        <TouchableOpacity style={styles.restoreButtonContainer}>
-            <Text style={{color:'white',fontSize:20}}>Forgot?</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={[styles.buttonContainer, styles.loginButton]}>
-          <Text style={styles.loginText}>Login</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.buttonContainer}>
-            <Text style={{color:'white',fontSize:20}}>Register</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={[styles.buttonContainer, styles.googleButton]}>
-          <View style={styles.socialButtonContent}>
-            <Image style={styles.icon} source={{uri: 'https://png.icons8.com/google/androidL/40/FFFFFF'}}/>
-            <Text style={styles.loginText}>Sign in with google</Text>
+        
           </View>
-        </TouchableOpacity>
+        
         {/* {setOpen?<QRScreen/>:null} */}
-        </View>
+        
 
         
         
         </ImageBackground>
+
+       
     );
 }
 
@@ -61,6 +38,7 @@ const styles = StyleSheet.create({
         alignItems:"center",
         
     },
+    
     inputContainer: {
         borderBottomColor: '#F5FCFF',
         backgroundColor: '#FFFFFF',
