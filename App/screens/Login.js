@@ -18,9 +18,9 @@ function Login(props) {
 
     return(
         <View style={styles.container1}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <StatusBar style="auto" />
-        {/* <QRScreen/> */}
+        {/* <Text>Open up App.js to start working on your app!</Text>
+        <StatusBar style="auto" /> */}
+        <QRScreen/>
         </View>
     );
 
