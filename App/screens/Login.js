@@ -4,6 +4,7 @@ import {Image, ImageBackground,StyleSheet,View,Text,Platform,StatusBar,Button,He
 import config from '/home/ellika/FirstApp/src/aws-exports.js';
 import { withAuthenticator } from 'aws-amplify-react-native';
 import { requestNotifications } from 'react-native-permissions';
+import QRScreen from './QRScreen';
 const Amplify=require('aws-amplify');
 
 Amplify.default.configure({
@@ -19,6 +20,7 @@ function Login(props) {
         <View style={styles.container1}>
         <Text>Open up App.js to start working on your app!</Text>
         <StatusBar style="auto" />
+        {/* <QRScreen/> */}
         </View>
     );
 

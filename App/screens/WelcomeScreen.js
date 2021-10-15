@@ -1,18 +1,24 @@
 import React,{useState} from 'react';
 import {Image, ImageBackground,StyleSheet,View,Text,Platform,StatusBar,Button,Header,TextInput,TouchableOpacity } from 'react-native';
 import QRScreen from './QRScreen';
-// import Amplify from '/home/ellika/FirstApp/src/aws-exports.js';
+import Login from './Login';
+import { NavigationContainer,useNavigation,createNavigationContainerRef } from '@react-navigation/native';
 
-
-function WelcomeScreen(props) {
+export const navigationRef = createNavigationContainerRef()
+const WelcomeScreen=({navigation}) =>{
     const [setOpen,setOpenFunc]=useState(false);
+    const navigator=useNavigation();
     return (
         
         <ImageBackground 
         style={styles.background}
         source={require('../assets/grocery.webp')}>
         <View style={styles.container}>
-        
+        <Button title="Let's start!"  onPress={()=>navigation.navigate('Login')}
+        // onPress={()=>navigationRef.isReady()?navigator.navigate('Login'):console.log('nothing')}
+        >
+          
+        </Button>
           </View>
         
         {/* {setOpen?<QRScreen/>:null} */}
