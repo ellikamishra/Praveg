@@ -6,6 +6,8 @@ import { StyleSheet, Text, View,SafeAreaView,Image,TouchableOpacity, Button, Ale
 import WelcomeScreen from './App/screens/WelcomeScreen';
 import Login from './App/screens/Login';
 import QRScreen from './App/screens/QRScreen';
+import LoginScreen from './App/screens/LoginScreen';
+
 const RootStack = createStackNavigator();
 
 
@@ -16,7 +18,7 @@ export default function App() {
         <RootStack.Screen name="Welcome to Praveg"component={WelcomeScreen}/>
 
   
-        <RootStack.Screen name="Login" component={Login}/>
+        <RootStack.Screen name="Login" component={LoginScreen}/>
         <RootStack.Screen name="Home" component={QRScreen}/>
         
       </RootStack.Navigator>
