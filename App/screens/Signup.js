@@ -14,7 +14,7 @@ Amplify.default.configure({
   },
 });
 
-function Login(props) {
+function Signup(props) {
 
     return(
         <View style={styles.container1}>
@@ -40,4 +40,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default withAuthenticator(Login);
+export default withAuthenticator(Signup);

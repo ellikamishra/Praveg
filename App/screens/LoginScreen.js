@@ -9,13 +9,15 @@ import {
   Image,
   Alert
 } from 'react-native';
+import {Auth} from "aws-amplify";
+
 
 export default class LoginScreen extends Component {
 
   constructor(props) {
     super(props);
     state = {
-      email   : '',
+      username   : '',
       password: '',
     }
   }
@@ -25,16 +27,21 @@ export default class LoginScreen extends Component {
     Alert.alert("Alert", "Button pressed "+viewId);
   }
 
+  handleSubmit=async function(event){
+    event.preventDefault();
+    let response=await Auth.signIn(username,password);
+    console.log("auth response",response);
+  }
   render() {
     return (
       <View style={styles.container}>
         <Image style={styles.bgImage} source={{ uri: "https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHdhbGxwYXBlcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" }}/>
         <View style={styles.inputContainer}>
           <TextInput style={styles.inputs}
-              placeholder="Email"
-              keyboardType="email-address"
+              placeholder="username"
+              keyboardType="username"
               underlineColorAndroid='transparent'
-              onChangeText={(email) => this.setState({email})}/>
+              onChangeText={(email) => this.setState({username})}/>
           <Image style={styles.inputIcon} source={{uri: 'https://img.icons8.com/nolan/40/000000/email.png'}}/>
         </View>
         
@@ -51,7 +58,7 @@ export default class LoginScreen extends Component {
             <Text style={styles.btnText}>Forgot your password?</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.onClickListener('login')}>
+        <TouchableOpacity style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.handleSubmit()}>
           <Text style={styles.loginText}>Login</Text>
         </TouchableOpacity>
 
@@ -156,4 +163,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default LoginScreen;
+// export default LoginScreen;

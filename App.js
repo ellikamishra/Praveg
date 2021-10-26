@@ -4,9 +4,10 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View,SafeAreaView,Image,TouchableOpacity, Button, Alert } from 'react-native';
 import WelcomeScreen from './App/screens/WelcomeScreen';
-import Login from './App/screens/Login';
+
 import QRScreen from './App/screens/QRScreen';
 import LoginScreen from './App/screens/LoginScreen';
+import Signup from './App/screens/Signup';
 
 const RootStack = createStackNavigator();
 
@@ -17,9 +18,10 @@ export default function App() {
       <RootStack.Navigator>
         <RootStack.Screen name="Welcome to Praveg"component={WelcomeScreen}/>
 
-  
-        <RootStack.Screen name="Login" component={LoginScreen}/>
-        <RootStack.Screen name="Home" component={QRScreen}/>
+
+        <RootStack.Screen name="Signup" component={Signup}/>
+        <RootStack.Screen name="LoginScreen" component={LoginScreen}/>
+        <RootStack.Screen name="QRScreen" component={QRScreen}/>
         
       </RootStack.Navigator>
   

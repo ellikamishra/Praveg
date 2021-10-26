@@ -1,20 +1,28 @@
 import React,{useState} from 'react';
 import {Image, ImageBackground,StyleSheet,View,Text,Platform,StatusBar,Button,Header,TextInput,TouchableOpacity } from 'react-native';
 import QRScreen from './QRScreen';
-import Login from './Login';
+import LoginScreen from './LoginScreen';
 import { NavigationContainer,useNavigation,createNavigationContainerRef } from '@react-navigation/native';
 
 export const navigationRef = createNavigationContainerRef()
 const WelcomeScreen=({navigation}) =>{
     const [setOpen,setOpenFunc]=useState(false);
+    const[currentUser,setcurrentUser]=useState();
     const navigator=useNavigation();
+
+    findUser=()=>{
+     return  currentUser?'LoginScreen':'Signup';
+    }
+
+    
+    
     return (
         
         <ImageBackground 
         style={styles.background}
         source={require('../assets/grocery.webp')}>
         <View style={styles.container}>
-        <Button title="Let's start!"  onPress={()=>navigation.navigate('Login')}
+        <Button title="Let's start!"  onPress={()=>navigation.navigate({findUser})}
         // onPress={()=>navigationRef.isReady()?navigator.navigate('Login'):console.log('nothing')}
         >
           
