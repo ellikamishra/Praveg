@@ -9,9 +9,9 @@ const WelcomeScreen=({navigation}) =>{
     const [setOpen,setOpenFunc]=useState(false);
     const[currentUser,setcurrentUser]=useState();
     const navigator=useNavigation();
-
-    findUser=()=>{
-     return  currentUser?'LoginScreen':'Signup';
+    const nextPage="";
+    const findUser=()=>{
+     return  currentUser?nextPage='LoginScreen':nextPage='Signup';
     }
 
     
@@ -22,7 +22,7 @@ const WelcomeScreen=({navigation}) =>{
         style={styles.background}
         source={require('../assets/grocery.webp')}>
         <View style={styles.container}>
-        <Button title="Let's start!"  onPress={()=>navigation.navigate({findUser})}
+        <Button title="Let's start!"  onPress={()=>navigation.navigate('Signup')}
         // onPress={()=>navigationRef.isReady()?navigator.navigate('Login'):console.log('nothing')}
         >
           

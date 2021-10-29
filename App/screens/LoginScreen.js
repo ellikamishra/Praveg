@@ -7,7 +7,8 @@ import {
   Button,
   TouchableOpacity,
   Image,
-  Alert
+  Alert,
+  ImageBackground
 } from 'react-native';
 import {Auth} from "aws-amplify";
 
@@ -34,14 +35,15 @@ export default class LoginScreen extends Component {
   }
   render() {
     return (
+      
       <View style={styles.container}>
-        <Image style={styles.bgImage} source={{ uri: "https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHdhbGxwYXBlcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" }}/>
+        
         <View style={styles.inputContainer}>
           <TextInput style={styles.inputs}
-              placeholder="username"
-              keyboardType="username"
+              placeholder="Username"
+              keyboardType="default"
               underlineColorAndroid='transparent'
-              onChangeText={(email) => this.setState({username})}/>
+              onChangeText={(username) => this.setState({username})}/>
           <Image style={styles.inputIcon} source={{uri: 'https://img.icons8.com/nolan/40/000000/email.png'}}/>
         </View>
         
@@ -66,7 +68,9 @@ export default class LoginScreen extends Component {
         <TouchableOpacity style={styles.buttonContainer} onPress={() => this.onClickListener('register')}>
             <Text style={styles.btnText}>Register</Text>
         </TouchableOpacity>
+      
       </View>
+      
     );
   }
 }
@@ -149,12 +153,12 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   bgImage:{
-    flex: 1,
-    resizeMode,
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    justifyContent: 'center',
+    flex: 1
+    // resizeMode,
+    // position: 'absolute',
+    // width: '100%',
+    // height: '100%',
+    
   },
   btnText:{
     color:"white",
