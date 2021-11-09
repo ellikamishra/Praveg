@@ -22,11 +22,14 @@ const WelcomeScreen=({navigation}) =>{
         style={styles.background}
         source={require('../assets/grocery.webp')}>
         <View style={styles.container}>
-        <Button title="Let's start!"  onPress={()=>navigation.navigate('Signup')}
+        <Button title="Login"  onPress={()=>navigation.navigate('Signup')}
         // onPress={()=>navigationRef.isReady()?navigator.navigate('Login'):console.log('nothing')}
-        >
+        />
+        <Button title="Signup"  onPress={()=>navigation.navigate('Signup')}
+        // onPress={()=>navigationRef.isReady()?navigator.navigate('Login'):console.log('nothing')}
+        />
           
-        </Button>
+        
           </View>
         
         {/* {setOpen?<QRScreen/>:null} */}

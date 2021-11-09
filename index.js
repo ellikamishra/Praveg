@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 import { registerRootComponent } from 'expo';
 
-import App from './src';
+import App from './App';
 import Amplify from 'aws-amplify'
 import config from './src/aws-exports.js'
 Amplify.configure(config)

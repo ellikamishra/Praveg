@@ -5,6 +5,8 @@ import { Authenticator } from 'aws-amplify-react-native'
 // import { AmplifyTheme, Localei18n } from './components'
 import awsconfig from './aws-exports'
 
+
+
 Amplify.configure({
     ...awsconfig,
     Analytics:{
