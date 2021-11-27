@@ -1,43 +1,124 @@
-import React,{useState} from 'react';
-import {Image, ImageBackground,StyleSheet,View,Text,Platform,StatusBar,Button,Header,TextInput,TouchableOpacity } from 'react-native';
+import React, { Component } from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Button,
+  TouchableHighlight,
+  Image,
+  Alert
+} from 'react-native';
 
-import config from '/home/ellika/FirstApp/src/aws-exports.js';
-import { withAuthenticator } from 'aws-amplify-react-native';
-import { requestNotifications } from 'react-native-permissions';
-import QRScreen from './QRScreen';
-const Amplify=require('aws-amplify');
+export default class SignUpView extends Component {
 
-Amplify.default.configure({
-  ...config,
-  Analytics: {
-    disabled: true,
-  },
-});
+  constructor(props) {
+    super(props);
+    state = {
+      fullName: '',
+      email   : '',
+      password: '',
+    }
+    const {navigation}=this.props.navigation;
+  }
 
-function Signup(props) {
+  onClickListener = (viewId) => {
+    Alert.alert("Alert", "Button pressed "+viewId);
+  }
 
-    return(
-        <View style={styles.container1}>
-        {/* <Text>Open up App.js to start working on your app!</Text>
-        <StatusBar style="auto" /> */}
-        <QRScreen/>
+  async handleSubmit(){
+    try{
+
+      let response=await Auth.signUp({username,password,attributes:{email}});
+      console.log("auth response",response);
+      
+      this.props.navigation.navigate("QRScreen");
+    }catch(err){
+      console.log(err);
+    }
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.inputContainer}>
+          <Image style={styles.inputIcon} source={{uri: 'https://png.icons8.com/male-user/ultraviolet/50/3498db'}}/>
+          <TextInput style={styles.inputs}
+              placeholder="Full name"
+              keyboardType="email-address"
+              underlineColorAndroid='transparent'
+              onChangeText={(fullName) => this.setState({fullName})}/>
         </View>
+
+        <View style={styles.inputContainer}>
+          <Image style={styles.inputIcon} source={{uri: 'https://png.icons8.com/message/ultraviolet/50/3498db'}}/>
+          <TextInput style={styles.inputs}
+              placeholder="Email"
+              keyboardType="email-address"
+              underlineColorAndroid='transparent'
+              onChangeText={(email) => this.setState({email})}/>
+        </View>
+        
+        <View style={styles.inputContainer}>
+          <Image style={styles.inputIcon} source={{uri: 'https://png.icons8.com/key-2/ultraviolet/50/3498db'}}/>
+          <TextInput style={styles.inputs}
+              placeholder="Password"
+              secureTextEntry={true}
+              underlineColorAndroid='transparent'
+              onChangeText={(password) => this.setState({password})}/>
+        </View>
+
+        <TouchableHighlight style={[styles.buttonContainer, styles.signupButton]} onPress={() =>this.handleSubmit }>
+          <Text style={styles.signUpText}>Sign up</Text>
+        </TouchableHighlight>
+      </View>
     );
-
-
-
+  }
 }
 
-
 const styles = StyleSheet.create({
-    container1: {
-        paddingTop:Platform.OS==="android"?StatusBar.currentHeight:0,
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#00b5ec',
+  },
+  inputContainer: {
+      borderBottomColor: '#F5FCFF',
+      backgroundColor: '#FFFFFF',
+      borderRadius:30,
+      borderBottomWidth: 1,
+      width:250,
+      height:45,
+      marginBottom:20,
+      flexDirection: 'row',
+      alignItems:'center'
+  },
+  inputs:{
+      height:45,
+      marginLeft:16,
+      borderBottomColor: '#FFFFFF',
+      flex:1,
+  },
+  inputIcon:{
+    width:30,
+    height:30,
+    marginLeft:15,
+    justifyContent: 'center'
+  },
+  buttonContainer: {
+    height:45,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom:20,
+    width:250,
+    borderRadius:30,
+  },
+  signupButton: {
+    backgroundColor: "#FF4DFF",
+  },
+  signUpText: {
+    color: 'white',
+  }
 });
-
-
-export default withAuthenticator(Signup);

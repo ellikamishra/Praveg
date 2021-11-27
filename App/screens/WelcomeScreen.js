@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import {Image, ImageBackground,StyleSheet,View,Text,Platform,StatusBar,Button,Header,TextInput,TouchableOpacity } from 'react-native';
 import QRScreen from './QRScreen';
-import LoginScreen from './LoginScreen';
+import LoginNew from './LoginNew';
 import { NavigationContainer,useNavigation,createNavigationContainerRef } from '@react-navigation/native';
 
 export const navigationRef = createNavigationContainerRef()
@@ -22,12 +22,10 @@ const WelcomeScreen=({navigation}) =>{
         style={styles.background}
         source={require('../assets/grocery.webp')}>
         <View style={styles.container}>
-        <Button title="Login"  onPress={()=>navigation.navigate('Signup')}
+        <Button title="Let's Start"  onPress={()=>navigation.navigate('LoginNew')}
         // onPress={()=>navigationRef.isReady()?navigator.navigate('Login'):console.log('nothing')}
         />
-        <Button title="Signup"  onPress={()=>navigation.navigate('Signup')}
-        // onPress={()=>navigationRef.isReady()?navigator.navigate('Login'):console.log('nothing')}
-        />
+        
           
         
           </View>
